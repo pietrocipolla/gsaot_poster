@@ -18,6 +18,9 @@ sobol_fun_inputs <- function(N) {
   # Generate N input samples using Latin Hypercube Sampling from the FME package
   x <- FME::Latinhyper(ranges, N)
   
+  # Assign column names
+  colnames(x) <- paste0("X", 1:8)
+  
   return(x)
 }
 

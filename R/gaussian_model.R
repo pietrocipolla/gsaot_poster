@@ -31,6 +31,9 @@ gaussian_inputs <- function(N) {
   # Apply Cholesky transformation to induce correlation
   x <- mx + x %*% chol(Sigmax)
   
+  # Assign column names
+  colnames(x) <- paste0("X", 1:3)
+  
   return(x)
 }
 
@@ -44,7 +47,7 @@ gaussian_model <- function(x) {
   y <- t(A %*% t(x))
   
   # Assign column names to the output
-  colnames(y) <- c("y1", "y2")
+  colnames(y) <- c("Y1", "Y2")
   
   return(y)
 }

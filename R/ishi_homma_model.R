@@ -13,10 +13,13 @@ ishi_homma_fun <- function(N, A = 2, B = 1) {
 # Function to generate input samples using Latin Hypercube Sampling
 ishi_homma_input <- function(N) {
   # Define the range of inputs for 8 dimensions (each between -π and π)
-  ranges <- matrix(rep(c(-pi, pi), each = 8), ncol = 2)
+  ranges <- matrix(rep(c(-pi, pi), each = 3), ncol = 2)
   
   # Generate N input samples using Latin Hypercube Sampling from the FME package
   x <- FME::Latinhyper(ranges, N)
+  
+  # Assign column names
+  colnames(x) <- paste0("X", 1:3)
   
   return(x)
 }
